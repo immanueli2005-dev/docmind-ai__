@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocMind AI - Intelligent Document Question Answering System</title>
+  <meta name="description" content="Chat with PDFs, Word documents, and text files. Get instant, accurate, AI-powered answers from your local document library.">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Main App Root Container -->
+  <div id="app">
+
+    <!-- 1. LANDING PAGE VIEW -->
+    <div id="landingPage" class="page-view active">
+      <header class="glass-header">
+        <div class="landing-nav">
+          <div class="logo-container">
+            <div class="logo-icon">
+              <i data-lucide="brain-circuit"></i>
+            </div>
+            <span>DocMind AI</span>
+          </div>
+          <nav class="landing-nav-links">
+            <a href="#landing">Home</a>
+            <a href="#landing">Features</a>
+            <a href="#landing">Pricing</a>
+            <a href="#login" class="btn btn-secondary" style="padding: 8px 18px; border-radius: var(--radius-sm);">Sign In</a>
+            <a href="#signup" class="btn btn-primary" style="padding: 8px 18px; border-radius: var(--radius-sm);">Get Started</a>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero-section animated-fade-in">
+        <div class="hero-content">
+          <h1>Chat with Your <br><span class="gradient-text">Documents</span> using AI</h1>
+          <p>Upload PDFs, Word documents, and text files. Ask questions in natural language and get instant, citations-backed, AI-powered answers.</p>
+          <div class="hero-actions">
+            <a href="#signup" class="btn btn-primary">Get Started Free <i data-lucide="arrow-right"></i></a>
+            <a href="#login" class="btn btn-secondary">View Demo</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/hero-illustration.png" alt="DocMind AI Document Analysis Illustration" class="animated-fade-in" style="width: 100%; max-width: 480px; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); border: 1px solid var(--border-color); object-fit: cover;">
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="features-section">
+        <h2 class="section-title">Everything you need to analyze documents</h2>
+        <p class="section-subtitle">Unlock insights locked away in your files using state-of-the-art semantic comprehension.</p>
+        <div class="features-grid">
+          
+          <!-- Card 1 -->
+          <div class="card">
+            <div class="feature-card-icon"><i data-lucide="file-up"></i></div>
+            <h3>Upload PDF & DOCX</h3>
+            <p>Seamlessly drag-and-drop standard office document formats and get them parsed within seconds.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card">
+            <div class="feature-card-icon"><i data-lucide="message-square"></i></div>
+            <h3>AI Question Answering</h3>
+            <p>Engage in an interactive conversation with your files. Get specific answers with exact source page citations.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card">
+            <div class="feature-card-icon"><i data-lucide="search"></i></div>
+            <h3>Semantic Search</h3>
+            <p>Search by concept rather than just keywords. Our AI locates relevant content even with different wordings.</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card">
+            <div class="feature-card-icon"><i data-lucide="history"></i></div>
+            <h3>Chat History</h3>
+            <p>Keep track of all queries, responses, and summaries across multiple chat threads and document targets.</p>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="card">
+            <div class="feature-card-icon"><i data-lucide="shield-check"></i></div>
+            <h3>Secure Storage</h3>
+            <p>Your documents are encrypted and securely stored. We respect your data confidentiality and compliance standards.</p>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="card">
+            <div class="feature-card-icon"><i data-lucide="zap"></i></div>
+            <h3>Lightning Fast Responses</h3>
+            <p>Experience sub-second question matching and content retrieval powered by high-performance index caching.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section class="how-it-works-section">
+        <h2 class="section-title">Simple 4-Step Workflow</h2>
+        <p class="section-subtitle" style="margin-bottom: 60px;">No technical training needed. Get answers instantly.</p>
+        <div class="how-it-works-container">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h4>Upload Documents</h4>
+            <p>Drop your PDF, DOCX, or TXT file into the upload zone.</p>
+          </div>
+          <div class="step-arrow"><i data-lucide="arrow-right"></i></div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h4>AI Processes Content</h4>
+            <p>Our pipeline segments, parses, and indexes the document text.</p>
+          </div>
+          <div class="step-arrow"><i data-lucide="arrow-right"></i></div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h4>Ask Questions</h4>
+            <p>Type your query in natural language inside the chat window.</p>
+          </div>
+          <div class="step-arrow"><i data-lucide="arrow-right"></i></div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h4>Receive Answers</h4>
+            <p>Read citations and highlighted summaries immediately.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Statistics Section -->
+      <section class="stats-section">
+        <div>
+          <div class="stat-number gradient-text">100K+</div>
+          <div class="stat-label">Documents Processed</div>
+        </div>
+        <div>
+          <div class="stat-number gradient-text">95%</div>
+          <div class="stat-label">Answer Accuracy</div>
+        </div>
+        <div>
+          <div class="stat-number gradient-text">10K+</div>
+          <div class="stat-label">Happy Users</div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-content">
+          <div class="footer-logo">
+            <div class="logo-container">
+              <div class="logo-icon"><i data-lucide="brain-circuit"></i></div>
+              <span>DocMind AI</span>
+            </div>
+            <p>Intelligent Document Analysis for modern fast-paced operations.</p>
+          </div>
+          <div class="footer-links-group">
+            <div class="footer-column">
+              <h5>Product</h5>
+              <ul>
+                <li><a href="#landing">Features</a></li>
+                <li><a href="#landing">Pricing</a></li>
+                <li><a href="#landing">Security</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h5>Company</h5>
+              <ul>
+                <li><a href="#landing">About Us</a></li>
+                <li><a href="#landing">Contact</a></li>
+                <li><a href="https://github.com" target="_blank">GitHub</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h5>Legal</h5>
+              <ul>
+                <li><a href="#landing">Privacy Policy</a></li>
+                <li><a href="#landing">Terms of Service</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 DocMind AI. All rights reserved.</span>
+          <span>Designed for speed and intelligence.</span>
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- 2. AUTHENTICATION PAGES (Wrapper) -->
+    <div id="authWrapper" class="page-view">
+      <div class="auth-wrapper">
+        <div class="auth-card">
+          
+          <!-- 2A. Login Screen -->
+          <div id="loginFormView">
+            <div class="auth-header">
+              <div class="logo-icon" style="margin: 0 auto 16px;"><i data-lucide="brain-circuit"></i></div>
+              <h2>Welcome Back</h2>
+              <p>Enter your details to access your workspace</p>
+            </div>
+            <form onsubmit="handleLoginSubmit(event)">
+              <div class="form-group">
+                <label class="form-label" for="loginEmailInput">Email Address</label>
+                <div class="input-with-icon">
+                  <i data-lucide="mail" class="input-icon"></i>
+                  <input type="email" id="loginEmailInput" class="form-input" placeholder="you@example.com" required value="immanuel@docmind.ai">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="loginPasswordInput">
+                  Password
+                  <a href="#forgot-password" class="forgot-password-link">Forgot password?</a>
+                </label>
+                <div class="input-with-icon">
+                  <i data-lucide="lock" class="input-icon"></i>
+                  <input type="password" id="loginPasswordInput" class="form-input" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required value="password123">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary auth-btn">Sign In</button>
+            </form>
+            <div class="auth-divider">or continue with</div>
+            <div class="oauth-buttons">
+              <button type="button" onclick="handleOauthLogin('GitHub')" class="oauth-btn"><i data-lucide="github" style="width:16px;"></i> GitHub</button>
+              <button type="button" onclick="handleOauthLogin('Google')" class="oauth-btn"><i data-lucide="chrome" style="width:16px;"></i> Google</button>
+            </div>
+            <div class="auth-footer">
+              Don't have an account? <a href="#signup">Create one</a>
+            </div>
+          </div>
+
+          <!-- 2B. Signup Screen -->
+          <div id="signupFormView" style="display:none;">
+            <div class="auth-header">
+              <div class="logo-icon" style="margin: 0 auto 16px;"><i data-lucide="brain-circuit"></i></div>
+              <h2>Create Account</h2>
+              <p>Get started with DocMind AI for free</p>
+            </div>
+            <form onsubmit="handleSignupSubmit(event)">
+              <div class="form-group">
+                <label class="form-label" for="signupNameInput">Full Name</label>
+                <div class="input-with-icon">
+                  <i data-lucide="user" class="input-icon"></i>
+                  <input type="text" id="signupNameInput" class="form-input" placeholder="Immanuel Dev" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="signupEmailInput">Email Address</label>
+                <div class="input-with-icon">
+                  <i data-lucide="mail" class="input-icon"></i>
+                  <input type="email" id="signupEmailInput" class="form-input" placeholder="you@example.com" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="signupPasswordInput">Password</label>
+                <div class="input-with-icon">
+                  <i data-lucide="lock" class="input-icon"></i>
+                  <input type="password" id="signupPasswordInput" class="form-input" placeholder="Create a strong password" required>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary auth-btn">Create Account</button>
+            </form>
+            <div class="auth-divider">or signup with</div>
+            <div class="oauth-buttons">
+              <button type="button" onclick="handleOauthLogin('GitHub')" class="oauth-btn"><i data-lucide="github" style="width:16px;"></i> GitHub</button>
+              <button type="button" onclick="handleOauthLogin('Google')" class="oauth-btn"><i data-lucide="chrome" style="width:16px;"></i> Google</button>
+            </div>
+            <div class="auth-footer">
+              Already have an account? <a href="#login">Sign In</a>
+            </div>
+          </div>
+
+          <!-- 2C. Forgot Password Screen -->
+          <div id="forgotFormView" style="display:none;">
+            <div class="auth-header">
+              <div class="logo-icon" style="margin: 0 auto 16px;"><i data-lucide="brain-circuit"></i></div>
+              <h2>Reset Password</h2>
+              <p>We'll send you links to recover your credential</p>
+            </div>
+            <form onsubmit="handleForgotSubmit(event)">
+              <div class="form-group">
+                <label class="form-label" for="forgotEmailInput">Email Address</label>
+                <div class="input-with-icon">
+                  <i data-lucide="mail" class="input-icon"></i>
+                  <input type="email" id="forgotEmailInput" class="form-input" placeholder="you@example.com" required>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary auth-btn">Send Recovery Link</button>
+            </form>
+            <div class="auth-footer" style="margin-top: 24px;">
+              Remembered your credentials? <a href="#login">Go Back</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 3. DASHBOARD MAIN APP SHELL (Logged In Layout) -->
+    <div id="appShell" class="page-view">
+      <div class="app-shell">
+        
+        <!-- Left Sidebar Navigation -->
+        <aside id="appSidebar" class="app-sidebar">
+          <div class="sidebar-header">
+            <div class="logo-container">
+              <div class="logo-icon"><i data-lucide="brain-circuit"></i></div>
+              <span>DocMind AI</span>
+            </div>
+          </div>
+          <nav class="sidebar-nav">
+            <a href="#dashboard" class="sidebar-link active">
+              <i data-lucide="layout-dashboard"></i>
+              <span>Dashboard</span>
+            </a>
+            <a href="#upload" class="sidebar-link">
+              <i data-lucide="file-up"></i>
+              <span>Upload Documents</span>
+            </a>
+            <a href="#chat" class="sidebar-link">
+              <i data-lucide="message-square"></i>
+              <span>AI Chat</span>
+            </a>
+            <a href="#search" class="sidebar-link">
+              <i data-lucide="compass"></i>
+              <span>Intelligent Search</span>
+            </a>
+            <a href="#library" class="sidebar-link">
+              <i data-lucide="files"></i>
+              <span>Document Library</span>
+            </a>
+            <!-- Extra dashboard tab options -->
+            <a href="#dashboard" class="sidebar-link" onclick="showToast('Analytics visualization simulation activated.', 'info')">
+              <i data-lucide="bar-chart-2"></i>
+              <span>Analytics</span>
+            </a>
+            <a href="#settings" class="sidebar-link">
+              <i data-lucide="settings"></i>
+              <span>Settings</span>
+            </a>
+          </nav>
+          
+          <div class="sidebar-footer">
+            <div class="sidebar-user">
+              <div class="avatar" id="sidebarAvatarText">ID</div>
+              <div class="user-info">
+                <div class="user-name" id="sidebarUserName">Immanuel Dev</div>
+                <div class="user-email" id="sidebarUserEmail">immanuel@docmind.ai</div>
+              </div>
+              <a href="#landing" class="btn-logout" title="Sign Out" onclick="state.currentUser = null; showToast('Logged out successfully', 'info');">
+                <i data-lucide="log-out" style="width:16px;"></i>
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Right Side Main Content View -->
+        <div class="app-container">
+          
+          <!-- Sticky Top Header Navbar -->
+          <header class="app-header">
+            <div style="display:flex; align-items:center; gap:16px;">
+              <!-- Mobile Sidebar Toggle -->
+              <button class="sidebar-toggle-btn" id="sidebarToggleBtn" onclick="toggleSidebar()">
+                <i data-lucide="menu"></i>
+              </button>
+              
+              <!-- Breadcrumb navigation -->
+              <div class="breadcrumb">
+                <span class="breadcrumb-home">DocMind AI</span>
+                <span class="breadcrumb-separator">/</span>
+                <span id="breadcrumbCurrent" class="breadcrumb-current">Overview</span>
+              </div>
+            </div>
+
+            <div class="app-header-actions">
+              <!-- Search globally -->
+              <div class="header-search">
+                <i data-lucide="search" class="header-search-icon"></i>
+                <input type="text" placeholder="Search documents globally..." class="header-search-input" oninput="handleHeaderSearch(event)">
+              </div>
+              
+              <!-- Notifications -->
+              <button class="header-icon-btn" onclick="showToast('You have 2 new system alerts', 'info')">
+                <i data-lucide="bell" style="width:18px; height:18px;"></i>
+                <span class="notification-badge"></span>
+              </button>
+              
+              <!-- Theme switch -->
+              <button class="header-icon-btn" title="Toggle Appearance" onclick="toggleDarkMode()">
+                <i data-lucide="sun-moon" style="width:18px; height:18px;"></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- Core Page Contents (Router toggles display of child elements here) -->
+          <main class="app-content-body">
+            
+            <!-- 3A. OVERVIEW PAGE -->
+            <div id="dashboardHomeView" class="app-content">
+              <div class="dashboard-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                
+                <!-- Stat Card 1 -->
+                <div class="card stat-card">
+                  <div class="stat-icon-wrapper"><i data-lucide="files"></i></div>
+                  <div>
+                    <div id="totalDocsCount" class="stat-value">6</div>
+                    <div class="stat-title">Total Documents</div>
+                  </div>
+                </div>
+
+                <!-- Stat Card 2 -->
+                <div class="card stat-card">
+                  <div class="stat-icon-wrapper"><i data-lucide="book-open"></i></div>
+                  <div>
+                    <div id="totalDocsPages" class="stat-value">186</div>
+                    <div class="stat-title">Total Pages</div>
+                  </div>
+                </div>
+
+                <!-- Stat Card 3 -->
+                <div class="card stat-card">
+                  <div class="stat-icon-wrapper"><i data-lucide="hard-drive"></i></div>
+                  <div>
+                    <div id="totalDocsSize" class="stat-value">16.9 MB</div>
+                    <div class="stat-title">Storage Used (of 100MB)</div>
+                  </div>
+                </div>
+
+                <!-- Stat Card 4 -->
+                <div class="card stat-card">
+                  <div class="stat-icon-wrapper"><i data-lucide="help-circle"></i></div>
+                  <div>
+                    <div id="questionsAskedCount" class="stat-value">14</div>
+                    <div class="stat-title">Questions Asked</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Dashboard Bottom Section Layout -->
+              <div class="dashboard-bottom-grid">
+                
+                <!-- Recent uploads list table -->
+                <div>
+                  <div class="dashboard-section-header">
+                    <h3>Recent Uploads</h3>
+                    <a href="#library" class="btn btn-secondary" style="padding: 6px 12px; border-radius: var(--radius-sm); font-size:0.8rem;">View All</a>
+                  </div>
+                  <div class="card table-card">
+                    <div class="table-wrapper">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>File Name</th>
+                            <th>Upload Date</th>
+                            <th>Pages</th>
+                            <th>Size</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody id="dashboardRecentUploadsTable">
+                          <!-- Filled by app.js -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Recent Activities Logs -->
+                <div>
+                  <div class="dashboard-section-header">
+                    <h3>Activity Log</h3>
+                  </div>
+                  <div class="card" style="max-height: 380px; overflow-y: auto;">
+                    <div id="dashboardActivityList" class="activity-list">
+                      <!-- Filled by app.js -->
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+            <!-- 3B. UPLOAD DOCUMENTS PAGE -->
+            <div id="uploadDocumentView" class="app-content" style="display:none;">
+              <input type="file" id="hiddenFileInput" style="display:none;" multiple onchange="simulateFileUpload(this.files)">
+              
+              <!-- Drag and drop zone -->
+              <div class="upload-dropzone" id="dropzone" onclick="triggerFileInputClick()">
+                <div class="upload-icon-container">
+                  <i data-lucide="cloud-lightning" style="width:32px; height:32px;"></i>
+                </div>
+                <h3>Drag & drop documents here</h3>
+                <p>or click to browse local system storage</p>
+                <div style="font-size:0.75rem; color:var(--text-muted); display:flex; justify-content:center; gap:20px;">
+                  <span><i data-lucide="file" style="width:12px; vertical-align:middle;"></i> PDF</span>
+                  <span><i data-lucide="file" style="width:12px; vertical-align:middle;"></i> DOCX</span>
+                  <span><i data-lucide="file" style="width:12px; vertical-align:middle;"></i> TXT</span>
+                </div>
+              </div>
+
+              <!-- Uploading in progress section -->
+              <div id="uploadingProgressSection">
+                <div id="uploadFilesProgressList" class="progress-list">
+                  <!-- Active progress loaders shown dynamically here -->
+                </div>
+              </div>
+
+              <!-- Uploaded files catalog lists -->
+              <div style="margin-top: 40px;">
+                <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:16px;">Uploaded Files</h3>
+                <div class="card table-card">
+                  <div class="table-wrapper">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>File Name</th>
+                          <th>Size</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody id="uploadedDocsTableBody">
+                        <!-- Filled by app.js -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- 3C. AI CHAT PAGE -->
+            <div id="aiChatView" class="app-content" style="display:none;">
+              <div class="chat-layout">
+                
+                <!-- Left panel: Conversation History sidebar -->
+                <aside class="chat-sidebar">
+                  <div class="chat-sidebar-header">
+                    <button class="chat-new-btn" onclick="createNewChat()">
+                      <i data-lucide="plus" style="width:16px; height:16px;"></i>
+                      New Chat
+                    </button>
+                    <div class="chat-sidebar-search">
+                      <i data-lucide="search"></i>
+                      <input type="text" placeholder="Search conversations..." oninput="onChatSearch(this.value)">
+                    </div>
+                  </div>
+                  <div id="chatHistoryScroll" class="chat-history-scroll">
+                    <!-- Populated by app.js with Today, Yesterday, Previous 7 Days, Previous Month lists -->
+                  </div>
+                </aside>
+
+                <!-- Right panel: Active chat window panel -->
+                <section class="chat-main">
+                  
+                  <!-- Sticky top header context -->
+                  <header class="chat-main-header">
+                    <div class="chat-header-doc">
+                      <div class="chat-header-doc-icon"><i data-lucide="file-text" style="width:18px; height:18px;"></i></div>
+                      <div>
+                        <div id="chatHeaderDocName" class="chat-header-doc-name">No Document Active</div>
+                        <div style="display:flex; align-items:center; gap:8px; margin-top:4px; flex-wrap:wrap;">
+                          <div id="chatHeaderDocMeta" class="chat-header-doc-meta" style="margin-top:0;">No context metrics</div>
+                          <span style="color:var(--text-muted); font-size:0.8rem;">&bull;</span>
+                          <span class="chat-header-doc-meta" style="margin-top:0; font-weight:700; color:var(--color-blue);">Search Scope:</span>
+                          <div class="multi-doc-select-container">
+                            <button id="chatMultiDocBtn" class="multi-doc-select-btn" onclick="toggleMultiDocDropdown('chat')" style="padding: 2px 8px; font-size: 0.7rem; border-radius: 4px; line-height:1;">
+                              <span id="chatMultiDocBtnText">All Documents Selected</span>
+                              <i data-lucide="chevron-down" style="width:10px; height:10px; margin-left:4px;"></i>
+                            </button>
+                            <div id="chatMultiDocSelectList" class="multi-doc-select-list">
+                              <!-- Populated dynamically -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="chat-header-actions">
+                      <button class="btn btn-secondary" style="padding: 8px 12px; border-radius: var(--radius-sm); font-size:0.8rem;" onclick="clearActiveChat()" title="Reset current chat log history">
+                        <i data-lucide="refresh-cw" style="width:14px; height:14px; margin-right:4px;"></i> Clear Chat
+                      </button>
+                      <button class="btn btn-secondary" style="padding: 8px 12px; border-radius: var(--radius-sm); font-size:0.8rem;" onclick="exportActiveChat()" title="Download chat as a text file">
+                        <i data-lucide="download" style="width:14px; height:14px; margin-right:4px;"></i> Export Chat
+                      </button>
+                    </div>
+                  </header>
+
+                  <!-- Notice banner alert -->
+                  <div id="chatNoticeAlert" class="chat-notice-alert" style="display:none;">
+                    <!-- नोटिस content inside -->
+                  </div>
+
+                  <!-- Messages and suggestion cards layout -->
+                  <div id="chatMessagesContainer" class="chat-messages-container">
+                    <!-- Loaded dynamically by app.js -->
+                  </div>
+
+                  <!-- Fixed bottom input workspace -->
+                  <div class="chat-input-container">
+                    <form id="chatForm" class="chat-input-form" onsubmit="submitChatMessage(event)">
+                      <button type="button" class="chat-input-btn" title="Attach file assets" onclick="simulateAttachment()">
+                        <i data-lucide="paperclip" style="width:18px; height:18px;"></i>
+                      </button>
+                      <textarea id="chatInput" class="chat-input" placeholder="Ask anything about your uploaded documents..." rows="1" autocomplete="off"></textarea>
+                      <button type="button" class="chat-input-btn" title="Voice dictation input" onclick="simulateMicrophone()">
+                        <i data-lucide="mic" style="width:18px; height:18px;"></i>
+                      </button>
+                      <button type="submit" id="chatSubmitBtn" class="chat-input-btn chat-send-btn" title="Send question" disabled>
+                        <i data-lucide="send" style="width:16px; height:16px;"></i>
+                      </button>
+                    </form>
+                  </div>
+
+                </section>
+              </div>
+            </div>
+
+
+            <!-- 3D. DOCUMENT LIBRARY PAGE -->
+            <div id="documentLibraryView" class="app-content" style="display:none;">
+              
+              <!-- Toolbar filters, search & display modes -->
+              <div class="library-toolbar">
+                <div class="library-filters">
+                  
+                  <!-- Filter keywords search -->
+                  <div class="library-search">
+                    <i data-lucide="search" class="header-search-icon"></i>
+                    <input type="text" id="librarySearchInput" class="header-search-input" style="width: 220px;" placeholder="Search documents..." oninput="onLibrarySearch(this.value)">
+                  </div>
+
+                  <!-- Format filters PDF/DOCX/TXT -->
+                  <select class="filter-select" onchange="onLibraryFilterType(this.value)">
+                    <option value="all">All File Types</option>
+                    <option value="pdf">PDF Files</option>
+                    <option value="docx">Word Files (DOCX)</option>
+                    <option value="txt">Text Files (TXT)</option>
+                  </select>
+
+                  <!-- Sorter options -->
+                  <select class="filter-select" onchange="onLibrarySort(this.value)">
+                    <option value="newest">Sort: Newest First</option>
+                    <option value="oldest">Sort: Oldest First</option>
+                    <option value="name">Sort: Name (A-Z)</option>
+                  </select>
+
+                </div>
+
+                <!-- Grid/List switches -->
+                <div class="layout-toggles">
+                  <button id="layoutGridBtn" class="layout-toggle-btn active" title="Grid Layout" onclick="setLibraryLayout('grid')">
+                    <i data-lucide="grid" style="width:16px;"></i>
+                  </button>
+                  <button id="layoutListBtn" class="layout-toggle-btn" title="List Layout" onclick="setLibraryLayout('list')">
+                    <i data-lucide="list" style="width:16px;"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Main library grid / list container -->
+              <div id="libraryDocsContainer" class="library-container grid">
+                <!-- Dynamically loaded by app.js -->
+              </div>
+            </div>
+
+
+            <!-- 3E. SETTINGS PAGE -->
+            <div id="settingsView" class="app-content" style="display:none;">
+              <div class="settings-container">
+                
+                <!-- Profile Settings -->
+                <div class="card animated-fade-in">
+                  <div class="settings-section-title">Profile Settings</div>
+                  <form onsubmit="saveProfileSettings(event)">
+                    
+                    <div class="avatar-edit-container">
+                      <div class="avatar" style="width:64px; height:64px; font-size:1.5rem;" id="profileAvatarSim">ID</div>
+                      <div>
+                        <button type="button" class="btn btn-secondary" style="padding: 6px 12px; font-size:0.8rem;" onclick="showToast('Avatar editing is disabled in this mockup', 'warning')">Change Avatar</button>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="profileNameInput">Workspace User Name</label>
+                      <input type="text" id="profileNameInput" class="form-input" style="padding-left:14px;" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="profileEmailInput">Workspace Email Address</label>
+                      <input type="email" id="profileEmailInput" class="form-input" style="padding-left:14px;" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="margin-top:10px;">Save Profile changes</button>
+                  </form>
+                </div>
+
+                <!-- Appearance Configuration -->
+                <div class="card animated-fade-in">
+                  <div class="settings-section-title">Preferences & Appearance</div>
+                  <div class="settings-row">
+                    <div class="settings-row-info">
+                      <div class="settings-row-title">Dark Mode Theme</div>
+                      <div class="settings-row-desc">Enable high-contrast dark visual system for low-light environments.</div>
+                    </div>
+                    <label class="switch">
+                      <input type="checkbox" id="settingsDarkModeToggle" onchange="toggleDarkMode()">
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                  
+                  <div class="settings-row" style="border-top:1px solid var(--border-color); padding-top:20px;">
+                    <div class="settings-row-info">
+                      <div class="settings-row-title">Workspace Notifications</div>
+                      <div class="settings-row-desc">Receive notifications upon file upload success or analysis completion.</div>
+                    </div>
+                    <label class="switch">
+                      <input type="checkbox" checked onchange="showToast('Notification settings updated', 'success')">
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Storage Gauge -->
+                <div class="card animated-fade-in">
+                  <div class="settings-section-title">Workspace Storage Allocation</div>
+                  <div class="settings-row-info">
+                    <div class="settings-row-title">Allocated Storage Gauge</div>
+                    <div class="settings-row-desc">Your free tier workspace allocation. Contact billing for expansions.</div>
+                  </div>
+                  <div class="storage-gauge-container">
+                    <div class="storage-gauge-fill"></div>
+                  </div>
+                  <div class="storage-labels">
+                    <span>Used: 13.4 MB</span>
+                    <span>Total Allocation: 100 MB</span>
+                  </div>
+                </div>
+
+                <!-- Danger Zone -->
+                <div class="card animated-fade-in" style="border-color: rgba(239, 68, 68, 0.3);">
+                  <div class="settings-section-title" style="color: var(--color-danger); border-color: rgba(239, 68, 68, 0.1);">Danger Zone</div>
+                  <div class="settings-row">
+                    <div class="settings-row-info">
+                      <div class="settings-row-title">Delete Workspace & Account</div>
+                      <div class="settings-row-desc">Permanently erase all upload indexing data, files, and account access logs.</div>
+                    </div>
+                    <button class="btn btn-danger" onclick="deleteAccount()">Delete Account</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+            <!-- 3G. INTELLIGENT SEARCH (RAG) PAGE -->
+            <div id="intelligentSearchView" class="app-content" style="display:none;">
+              
+              <!-- Header Section -->
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; flex-wrap:wrap; gap:16px;">
+                <div>
+                  <h2 style="font-size:1.85rem; font-weight:800; display:flex; align-items:center; gap:12px;">
+                    Intelligent Document Search
+                    <span class="badge-rag"><i data-lucide="sparkles" style="width:12px; height:12px;"></i> RAG Powered</span>
+                  </h2>
+                  <p style="color:var(--text-secondary); font-size:0.95rem; margin-top:4px;">Search documents by meaning, not just keywords.</p>
+                </div>
+              </div>
+
+              <!-- Centered large search bar and suggestions -->
+              <div class="search-box-centered" style="margin-bottom:40px;">
+                <form class="chat-input-form" onsubmit="submitSemanticSearch(event)">
+                  <i data-lucide="search" style="color:var(--text-muted); width:20px; height:20px; flex-shrink:0; margin-bottom:10px;"></i>
+                  <textarea id="searchBarInput" class="chat-input" placeholder="Ask anything about your uploaded documents..." rows="1" autocomplete="off"></textarea>
+                  <button type="button" class="chat-input-btn" title="Voice Search" onclick="simulateVoiceSearch()">
+                    <i data-lucide="mic" style="width:18px; height:18px;"></i>
+                  </button>
+                  <button type="button" class="chat-input-btn" title="Clear Query" onclick="clearSemanticSearch()">
+                    <i data-lucide="x" style="width:18px; height:18px;"></i>
+                  </button>
+                  <button type="submit" class="chat-input-btn chat-send-btn" title="Submit Search">
+                    <i data-lucide="arrow-right" style="width:16px; height:16px;"></i>
+                  </button>
+                </form>
+
+                <!-- Sample Prompts -->
+                <div class="sample-prompts-flex">
+                  <div class="sample-prompt-chip" onclick="sendSemanticQuery('Explain neural networks')">Explain neural networks</div>
+                  <div class="sample-prompt-chip" onclick="sendSemanticQuery('Summarize Chapter 5')">Summarize Chapter 5</div>
+                  <div class="sample-prompt-chip" onclick="sendSemanticQuery('What are the advantages of AI?')">What are the advantages of AI?</div>
+                  <div class="sample-prompt-chip" onclick="sendSemanticQuery('List all algorithms')">List all algorithms</div>
+                  <div class="sample-prompt-chip" onclick="sendSemanticQuery('Explain supervised learning')">Explain supervised learning</div>
+                </div>
+              </div>
+
+              <!-- Layout container: Left sidebar filters + Right results pane -->
+              <div class="search-layout">
+                
+                <!-- Left Sidebar Filters -->
+                <aside class="search-filters-sidebar">
+                  <div style="font-weight:700; font-size:0.95rem; margin-bottom:20px; border-bottom:1px solid var(--border-color); padding-bottom:8px; display:flex; align-items:center; gap:8px;">
+                    <i data-lucide="filter" style="width:16px; height:16px;"></i> Search Filters
+                  </div>
+
+                  <!-- Filter Doc context -->
+                  <div class="filter-group">
+                    <div class="filter-title">Filter by Document(s)</div>
+                    <div class="multi-doc-select-container">
+                      <button id="searchMultiDocBtn" class="multi-doc-select-btn" onclick="toggleMultiDocDropdown('search')">
+                        <span id="searchMultiDocBtnText">All Documents Selected</span>
+                        <i data-lucide="chevron-down" style="width:14px; height:14px;"></i>
+                      </button>
+                      <div id="searchMultiDocSelectList" class="multi-doc-select-list">
+                        <!-- Populated dynamically -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Similarity threshold range slider -->
+                  <div class="filter-group">
+                    <div class="filter-title">Min Similarity Match</div>
+                    <div class="filter-range-wrapper">
+                      <span id="searchSimilaritySliderVal" class="filter-range-val">80%</span>
+                      <input type="range" class="filter-range" min="50" max="100" value="80" oninput="onSearchSimilaritySliderInput(this.value)">
+                    </div>
+                  </div>
+
+                  <!-- Format filters -->
+                  <div class="filter-group">
+                    <div class="filter-title">Document Format</div>
+                    <select class="filter-select" style="width:100%;" onchange="showToast('Format filtering is configured in the libraries view.', 'info')">
+                      <option value="all">All Formats (*)</option>
+                      <option value="pdf">PDF files only</option>
+                      <option value="docx">Word files only</option>
+                      <option value="txt">Text files only</option>
+                    </select>
+                  </div>
+
+                  <!-- Sorter -->
+                  <div class="filter-group">
+                    <div class="filter-title">Sort Match Output</div>
+                    <select class="filter-select" style="width:100%;" onchange="showToast('Similarity score sorting active.', 'info')">
+                      <option value="score">Cosine Match Score</option>
+                      <option value="newest">Newest Uploaded</option>
+                      <option value="oldest">Oldest Uploaded</option>
+                    </select>
+                  </div>
+
+                </aside>
+
+                <!-- Right Main Output Panel -->
+                <section class="search-main">
+                  
+                  <div id="searchResultsBox">
+                    <!-- Populated dynamically by app.js with RAG Workflow steps, comparison cards, and matched citation answers -->
+                  </div>
+
+                  <!-- Recent searches footer -->
+                  <div style="border-top:1px solid var(--border-color); padding-top:28px;">
+                    <div class="filter-title" style="margin-bottom:12px;">Recent Queries</div>
+                    <div id="recentSearchesGrid" class="recent-searches-grid">
+                      <!-- Populated by app.js -->
+                    </div>
+                  </div>
+
+                </section>
+
+              </div>
+
+            </div>
+
+
+            <!-- 3F. 404 ROUTE FALLBACK PAGE -->
+            <div id="error404View" class="app-content" style="display:none;">
+              <div class="error-page-wrapper animated-fade-in">
+                <div class="error-code gradient-text">404</div>
+                <h2 class="error-title">Page Not Found</h2>
+                <p class="error-desc">We couldn't find the page or dashboard tab you are looking for. It might have been relocated, or is disabled in this mockup.</p>
+                <a href="#dashboard" class="btn btn-primary">Return to Overview</a>
+              </div>
+            </div>
+
+          </main>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Drag-and-Drop Global Visualizer Binding scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dropzone = document.getElementById('dropzone');
+      
+      if (dropzone) {
+        ['dragenter', 'dragover'].forEach(eventName => {
+          dropzone.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dropzone.classList.add('dragover');
+          }, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+          dropzone.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dropzone.classList.remove('dragover');
+          }, false);
+        });
+
+        dropzone.addEventListener('drop', (e) => {
+          const dt = e.dataTransfer;
+          const files = dt.files;
+          if (files && files.length > 0) {
+            simulateFileUpload(files);
+          }
+        }, false);
+      }
+    });
+  </script>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="mobile-bottom-nav">
+    <a href="#dashboard" class="mobile-nav-item active" aria-label="Overview Dashboard">
+      <i data-lucide="layout-dashboard"></i>
+      <span>Home</span>
+    </a>
+    <a href="#search" class="mobile-nav-item" aria-label="Semantic Intelligent Search">
+      <i data-lucide="compass"></i>
+      <span>Search</span>
+    </a>
+    <a href="#upload" class="mobile-nav-item" aria-label="Upload document files">
+      <i data-lucide="file-up"></i>
+      <span>Upload</span>
+    </a>
+    <a href="#chat" class="mobile-nav-item" aria-label="Conversational AI Chat">
+      <i data-lucide="message-square"></i>
+      <span>Chat</span>
+    </a>
+    <a href="#settings" class="mobile-nav-item" aria-label="Settings configuration">
+      <i data-lucide="settings"></i>
+      <span>Settings</span>
+    </a>
+  </nav>
+
+  <!-- Mock Document Preview Modal Overlay -->
+  <div id="documentPreviewModal" class="modal-overlay" onclick="closeDocPreviewModal()" aria-modal="true" role="dialog">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="modalDocTitle" style="font-weight:700; margin:0;">Document Preview</h3>
+        <button class="chat-input-btn" onclick="closeDocPreviewModal()" style="padding:0; border-radius:50%;" aria-label="Close modal">
+          <i data-lucide="x" style="width:18px; height:18px;"></i>
+        </button>
+      </div>
+      <div id="modalDocBody" class="modal-body">
+        <!-- Populated dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeDocPreviewModal()">Close Preview</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- OAuth Simulation Modal Overlay -->
+  <div id="oauthModal" class="modal-overlay" onclick="closeOauthModal()" aria-modal="true" role="dialog">
+    <div class="modal-box" onclick="event.stopPropagation()" style="max-width: 400px; text-align: center; padding: 40px 24px; border-radius: var(--radius-lg); background-color: var(--bg-secondary); border: 1px solid var(--border-color); box-shadow: var(--shadow-xl); margin: auto;">
+      <div class="oauth-spinner-container" style="margin-bottom: 24px; display: flex; justify-content: center; align-items: center;">
+        <div class="oauth-loader" style="width: 56px; height: 56px; border: 4px solid var(--border-color); border-top: 4px solid var(--color-blue); border-radius: 50%;"></div>
+      </div>
+      <h3 id="oauthModalTitle" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: var(--text-primary);">Connecting to GitHub...</h3>
+      <p id="oauthModalDesc" style="color: var(--text-muted); font-size: 0.875rem;">Please authorize DocMind AI to access your public profile details.</p>
+    </div>
+  </div>
+
+  <!-- Load core routing module -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
